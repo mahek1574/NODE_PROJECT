@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student List</title>
+
+</head>
+<body>
+  <h2>To-do list</h2>
+  <form action="/insertData" method="post">
+    <input type="text" placeholder="Enter ID" name="id" required> 
+    <input type="text" placeholder="Enter Name" name="name" required> 
+    <input type="submit" value="Add Student">
+  </form>
+
+  <h2>Student Data List</h2>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+    <% student.forEach((el) => { %>
+      <tr>
+        <td><%= el.id %></td>
+        <td><%= el.name %></td>
+        <td><a href="/delete?id=<%= el.id %>">Delete</a></td>
+        <td><a href="/edit?id=<%= el.id %>">Edit</a></td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
